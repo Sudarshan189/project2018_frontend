@@ -8,18 +8,18 @@
           <img src="http://sarkarinews.com/wp-content/uploads/2015/02/bescom.jpg" style="width:100px;height:125px;">
           <h6 class="pb-0">BESCOM SignIn Portal</h6>
         </div>
-        <form>
+        <form (ngSubmit)="SignUp(f.value)" #f="ngForm">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Account ID</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID/ Aadhar Number">
+                <input type="number" name="id" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID/ Aadhar Number">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputPassword1">Name</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                <input type="text" name="name" ngModel class="form-control" id="exampleInputPassword1" placeholder="Name">
               </div>
             </div>
           </div>
@@ -27,13 +27,13 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail2">Address</label>
-                <textarea type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Address"></textarea>
+                <textarea type="text" name="address" ngModel class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Address"></textarea>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail3">Sanctined Load</label>
-                <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Load Sanctioned">
+                <input type="text" name="sanct_load" ngModel class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" placeholder="Load Sanctioned">
               </div>
             </div>
           </div>
@@ -41,13 +41,13 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail4">Phone</label>
-                <input type="text" class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="Phone/ Mobile">
+                <input type="number" name="phone" ngModel class="form-control" id="exampleInputEmail4" aria-describedby="emailHelp" placeholder="Phone/ Mobile">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="exampleInputEmail5">Email</label>
-                <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="Email">
+                <input type="email" name="email" ngModel class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp" placeholder="Email">
               </div>
             </div>
           </div>
@@ -55,35 +55,41 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="exampleInputEmail6">RR Number</label>
-                <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp" placeholder="RR Number">
+                <input type="text" name="rr_num" ngModel class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp" placeholder="RR Number">
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="exampleInputEmail7">Meter Number</label>
-                <input type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp" placeholder="Meter Number">
+                <input type="number" name="meter_no" ngModel class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp" placeholder="Meter Number">
               </div>
             </div>
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="exampleInputEmail8">Tariff</label>
-                <input type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Tariff">
+                <input type="text" name="tariff" ngModel class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Tariff">
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
               <div class="form-group">
                 <label for="exampleInputEmail9">Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Password">
+                <input type="password" name="password" ngModel class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Password">
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail10">Comfirm Password</label>
-                <input type="password" class="form-control" id="exampleInputEmail10" aria-describedby="emailHelp" placeholder="Confirm Password">
-              </div>
-            </div>
+            <!--<div class="col-sm-6">-->
+              <!--<div class="form-group">-->
+                <!--<label for="exampleInputEmail10">Comfirm Password</label>-->
+                <!--<input type="password" class="form-control" id="exampleInputEmail10" aria-describedby="emailHelp" placeholder="Confirm Password">-->
+              <!--</div>-->
+            <!--</div>-->
+          </div>
+          <div class="alert alert-success" role="alert" *ngIf="stateMsg.state == '1'">
+            Account Created Successfully <a [routerLink]="['/login']">Login Here</a>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="error == 1">
+            Error Creating Account
           </div>
           <div class="row">
             <div class="col-sm-4"></div>
@@ -93,6 +99,9 @@
             <div class="col-sm-4"></div>
           </div>
         </form>
+        <br>
+        <br>
+        <p> Already have Account? <a [routerLink]="['/login']">Login Here</a></p>
       </div>
     </div>
     <div class="col-sm-2"></div>

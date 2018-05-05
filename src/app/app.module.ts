@@ -11,6 +11,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { UserpricingComponent } from './userpage/userpricing/userpricing.component';
 import { UserbillComponent } from './userpage/userbill/userbill.component';
 import { newRoute } from './routing/navroute'
+import {AuthService} from "./services/auth.service";
+import {HttpclientService} from "./services/httpclient.service";
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { newRoute } from './routing/navroute'
     BrowserModule,
     FormsModule,
     HttpModule,
-    newRoute
+    newRoute,
+    HttpModule
   ],
-  providers: [],
+  providers: [AuthService, HttpclientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

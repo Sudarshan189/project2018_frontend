@@ -41,10 +41,10 @@
 
         <div class="row" align="center">
           <div class="col-sm-4">
-            RR Number:<h6 class="card-title">KL20997</h6>
+            RR Number:<h6 class="card-title">{{userdata.rr_num}}</h6>
           </div>
           <div class="col-sm-4">
-            Account ID:<h6 class="card-title">3318501000</h6>
+            Account ID:<h6 class="card-title">{{userdata.id}}</h6>
           </div>
           <div class="col-sm-4">
             Bill Number:<h6 class="card-title">331857984059</h6>
@@ -71,8 +71,7 @@
         <div class="row" align="center">
           <div class="col-sm-2"></div>
           <div class="col-sm-8">
-            Name & Address:<h6 class="card-title">Sudarshan K Shanbhag<br>385/1385/1 BANDHAR ROAD
-            KUMTA, KAR -581343</h6>
+            Name & Address:<h6 class="card-title">{{userdata.name}}<br>{{userdata.address}}</h6>
           </div>
           <div class="col-sm-2"></div>
         </div>
@@ -89,14 +88,14 @@
           <tbody>
           <tr align="center">
             <td scope="row">Domestic - LT2A</td>
-            <td>5LT2A1-N</td>
-            <td>0.70</td>
+            <td>{{userdata.tariff}}</td>
+            <td>{{userdata.sanct_load}}</td>
             <td></td>
           </tr>
           </tbody>
         </table>
         <br>
-        <h6 align="center">Meter Readings for Meter Number 4155857356 </h6>
+        <h6 align="center">Meter Readings for Meter Number {{userdata.meter_no}} </h6>
         <table class="table table-bordered">
           <thead>
           <tr align="center">

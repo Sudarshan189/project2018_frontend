@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Signup} from "../../shared/classes/signup";
 
 @Component({
   selector: 'app-userbill',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class UserbillComponent implements OnInit {
 
   constructor() { }
-
+  userdata: Signup;
   ngOnInit() {
+    this.userdata = JSON.parse(localStorage.getItem("userdata"));
   }
 
 }
