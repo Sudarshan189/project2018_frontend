@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Headers, Http, RequestOptions} from "@angular/http";
 
 import {Signup, StatusRespons} from "../shared/classes/signup";
-import {HttpclientService} from "./httpclient.service";
 
 
 @Injectable()

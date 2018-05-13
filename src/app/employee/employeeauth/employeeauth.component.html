@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <div class="container p-4 mt-4" style="background-color:white; border:1px solid black">
+        <div align="center">
+          <img src="http://ssoftsolutions.in/images/Dedicated-Servers-For-Ecommerce.png" style="width:125px;height:125px;">
+          <h6 class="pb-0">BESCOM Employee Authentication Portal</h6>
+        </div>
+        <form (ngSubmit)="EmployeeLogin(f.value)" #f="ngForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Employee ID</label>
+            <input name="account_id" ngModel type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Employee ID">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input name="password" ngModel type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group form-check">
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+

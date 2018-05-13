@@ -1,8 +1,34 @@
-<app-navbar></app-navbar>
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">BESCOM Employee </a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Send Bills</a>
+    </li>
+  </ul>
+
+  <span class="navbar-text">
+     <a [routerLink]="['/employeelogin']">Logout</a>
+    </span>
+</nav>
+
+
 <div class="row m-2">
   <div class="col-sm-5">
     <div align="center" class="mt-2"> <h5>Bills</h5></div>
-    <div class="card m-2" *ngFor="let item of bills">
+    <br>
+    <div align="center">
+      <form (ngSubmit)="GetBills(f.value)" #f="ngForm">
+        <input type="text" name="account_id" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="RR Number">
+        <br>
+        <button type="submit" class="btn btn-primary">Get Bills</button>
+      </form>
+    </div>
+<br>
+
+
+
+    <div class="card m-2" *ngFor="let item of arrofBill">
       <div class="card-body p-2 pl-3">
         <!-- First row -->
         <div class="row">
@@ -22,13 +48,12 @@
             <button class="btn btn-primary btn-sm btn-block" (click)="OpenBill(item)">Open Bill</button>
           </div>
           <div class="col-sm-4" *ngIf="item.paid == true">
-            <a href="#" class="btn btn-success btn-sm btn-block ">Paid</a>
+            <button class="btn btn-success btn-sm btn-block ">Paid</button>
           </div>
           <div class="col-sm-4" *ngIf="item.paid == false">
-            <a href="#" class="btn btn-danger btn-sm btn-block">Unpaid</a>
+            <button class="btn btn-danger btn-sm btn-block">Unpaid</button>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -36,7 +61,7 @@
   <!-- Detailed Bill-->
   <div class="col-sm-7">
     <div align="center" class="mt-2"> <h5>Detailed Bill </h5></div>
-    <div class="card" *ngIf="bill.bill_num > 0">
+    <div class="card" *ngIf="bill.account_id > 0">
       <div class="card-body">
 
         <div class="row" align="center">
@@ -65,7 +90,7 @@
             Due Date:<h6 class="card-title">{{bill.due_date}}</h6>
           </div>
           <!--<div class="col-sm-6">-->
-            <!--Disconnection Date:<h6 class="card-title">11-05-2018</h6>-->
+          <!--Disconnection Date:<h6 class="card-title">11-05-2018</h6>-->
           <!--</div>-->
         </div>
         <div class="row" align="center">
@@ -74,6 +99,14 @@
             Name & Address:<h6 class="card-title">{{bill.name}}<br>{{bill.address}}</h6>
           </div>
           <div class="col-sm-2"></div>
+        </div>
+        <div class="row" align="center">
+          <div class="col-sm-6">
+            Email :<h6 class="card-title">{{bill.email}}</h6>
+          </div>
+          <div class="col-sm-6">
+            Phone:<h6 class="card-title">{{bill.phone}}</h6>
+          </div>
         </div>
         <br>
         <table class="table table-bordered">
@@ -105,22 +138,22 @@
           </thead>
           <tbody>
           <!--<tr align="center">-->
-            <!--<td scope="row">Present Reading</td>-->
-            <!--<td>12-04-2018</td>-->
-            <!--<td>1916</td>-->
-            <!--<td></td>-->
+          <!--<td scope="row">Present Reading</td>-->
+          <!--<td>12-04-2018</td>-->
+          <!--<td>1916</td>-->
+          <!--<td></td>-->
           <!--</tr>-->
           <!--<tr align="center">-->
-            <!--<td scope="row">Previous Reading</td>-->
-            <!--<td>12-03-2018</td>-->
-            <!--<td>1795</td>-->
-            <!--<td></td>-->
+          <!--<td scope="row">Previous Reading</td>-->
+          <!--<td>12-03-2018</td>-->
+          <!--<td>1795</td>-->
+          <!--<td></td>-->
           <!--</tr>-->
           <!--<tr align="center">-->
-            <!--<td scope="row">Difference</td>-->
-            <!--<td></td>-->
-            <!--<td>121</td>-->
-            <!--<td>0</td>-->
+          <!--<td scope="row">Difference</td>-->
+          <!--<td></td>-->
+          <!--<td>121</td>-->
+          <!--<td>0</td>-->
           <!--</tr>-->
           <tr align="center">
             <td scope="row">Meter Constant</td>
@@ -178,15 +211,28 @@
           </div>
         </div>
         <br>
-        <div align="right"><h6> Sd/-<br>Assistant Executive Engineer (Ele.)</h6></div>
+       <!--<div align="right"><h6> Sd/-<br>Assistant Executive Engineer (Ele.)</h6></div>-->
         <div class="row">
           <!--<div class="col-sm-4">-->
-            <!--<a href="#" class="btn btn-danger btn-sm btn-block">Close</a>-->
+          <!--<a href="#" class="btn btn-danger btn-sm btn-block">Close</a>-->
           <!--</div>-->
           <div class="col-sm-4">
-            <a href="#" class="btn btn-primary btn-sm btn-block">Pay Bill</a>
+            <h5 *ngIf="bill.paid == true">Status: Paid</h5>
+            <h5 *ngIf="bill.paid == false">Status: Unpaid</h5>
           </div>
-          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+            <button class="btn btn-primary btn-sm btn-block" (click)="MakePaid(bill.rr_num, bill.bill_num)">Mark as Paid</button>
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-danger btn-sm btn-block" (click)="MakeUnPaid(bill.rr_num, bill.bill_num)">Mark as Unpaid</button>
+          </div>
+        </div>
+        <br>
+        <div class="alert alert-success" role="alert" *ngIf="payment==11">
+          Bill Payment Successfully
+        </div>
+        <div class="alert alert-danger" role="alert"  *ngIf="payment==12">
+          Bill Payment Revoked
         </div>
       </div>
     </div>
@@ -195,3 +241,35 @@
 </div>
 
 <br><br>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Create Bills</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="ClearAll()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <br>
+          <button class="btn btn-primary btn-block" (click)="CreateBills()">Create Bills</button><br>
+        <br>
+        <div class="alert alert-success" role="alert" *ngIf="createbill.state==13">
+          Bill Generated Successfully
+        </div>
+          <button class="btn btn-primary btn-block" (click)="SendEmails()">Send Email</button><br>
+        <br>
+        <div class="alert alert-success" role="alert" *ngIf="sendemail.state==8">
+          Bill Sent to Email Successfully
+        </div>
+          <button class="btn btn-primary btn-block" (click)="SendMsgs()">Send SMS</button>
+        <br>
+        <div class="alert alert-success" role="alert" *ngIf="sendmsg.state==10">
+          Bill Sent via SMS Successfully
+        </div>
+      </div>
+  </div>
+</div>

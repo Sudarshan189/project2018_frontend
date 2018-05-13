@@ -4,6 +4,8 @@ import {SignupComponent} from "../userauth/signup/signup.component";
 import {UserhomeComponent} from "../userpage/userhome/userhome.component";
 import {UserbillComponent} from "../userpage/userbill/userbill.component";
 import {UserpricingComponent} from "../userpage/userpricing/userpricing.component";
+import {EmployeeauthComponent} from "../employee/employeeauth/employeeauth.component";
+import {EmployeehomeComponent} from "../employee/employeehome/employeehome.component";
 
 const APPROUTS: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,6 +14,8 @@ const APPROUTS: Routes = [
   { path: 'home', component: UserhomeComponent },
   { path: 'bills', component: UserbillComponent },
   { path: 'chargesapplied', component: UserpricingComponent },
+  { path: 'employeelogin', component:EmployeeauthComponent  },
+  { path: 'employeehome', component: EmployeehomeComponent }
 ];
 
 export const newRoute = RouterModule.forRoot(APPROUTS);

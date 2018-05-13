@@ -36,3 +36,102 @@ export class StatusRespons {
 
 
 }
+
+
+export class KWHUpdate {
+
+  rr_num: any;
+  current: any;
+  voltage: any;
+  kwh: any;
+  updated_at: any;
+  constructor(obj2?:any) {
+    this.rr_num = obj2 && obj2.rr_num || " ";
+    this.current = obj2 && obj2.current || "0";
+    this.voltage = obj2 && obj2.voltage || "0";
+    this.kwh = obj2 && obj2.kwh || "0";
+    this.updated_at = obj2 && obj2.updated_at || " ";
+  }
+
+
+}
+
+export class Bill {
+
+  rr_num: any;
+  account_id: any;
+  mtr_read_code: any;
+  name: any;
+  address : any;
+  tariff: any;
+  sanct_load: any;
+  from_date: any;
+  to_date: any;
+  reading_date: any;
+  bill_num: any;
+  meter_sl_num: any;
+  present_read: any;
+  previous_read: any;
+  constant: any;
+  consumption: any;
+  average: any;
+  recorded_md: any;
+  power_factor: any;
+   rebates_tod_charges : any;
+   pf_penalty : any;
+   ex_load_md_penalty : any;
+   interest : any;
+   others : any;
+   tax : any;
+   current_bill_amt : any;
+   arrears : any;
+   credits_adj : any;
+   gov_subsidy : any;
+   net_amt_due : string;
+   due_date :  any;
+   paid : boolean;
+   email: any;
+   phone: any;
+
+
+
+
+  constructor(obj3?:any) {
+    this.rr_num = obj3 && obj3.rr_num || " ";
+    this.account_id = obj3 && obj3.account_id || " ";
+    this.mtr_read_code = obj3 && obj3.mtr_read_code || " ";
+    this.name = obj3 && obj3.name || " ";
+    this.address = obj3 && obj3.address || " ";
+    this.tariff = obj3 && obj3.tariff || " ";
+    this.sanct_load = obj3 && obj3.sanct_load || " ";
+    this.from_date = obj3 && obj3.from_date || " ";
+    this.to_date = obj3 && obj3.to_date || " ";
+    this.reading_date = obj3 && obj3.reading_date || " ";
+    this.bill_num = obj3 && obj3.bill_num || " ";
+    this.meter_sl_num = obj3 && obj3.meter_sl_num || " ";
+    this.present_read = obj3 && obj3.present_read || " ";
+    this.previous_read = obj3 && obj3.previous_read || " ";
+    this.constant = obj3 && obj3.constant || " ";
+    this.consumption = obj3 && obj3.consumption || " ";
+    this.average = obj3 && obj3.average || " ";
+    this.recorded_md = obj3 && obj3.recorded_md || " ";
+    this.power_factor = obj3 && obj3.power_factor || " ";
+    this.rebates_tod_charges = obj3 && obj3.rebates_tod_charges || " ";
+    this.pf_penalty = obj3 && obj3.pf_penalty || " ";
+    this.ex_load_md_penalty = obj3 && obj3.ex_load_md_penalty || " ";
+    this.interest = obj3 && obj3.interest || " ";
+    this.others = obj3 && obj3.others || " ";
+    this.tax = obj3 && obj3.tax || " ";
+    this.current_bill_amt = obj3 && obj3.current_bill_amt || " ";
+    this.arrears = obj3 && obj3.arrears || " ";
+    this.credits_adj = obj3 && obj3.credits_adj || " ";
+    this.gov_subsidy = obj3 && obj3.gov_subsidy || " ";
+    this.net_amt_due = obj3 && obj3.net_amt_due || " ";
+    this.due_date = obj3 && obj3.due_date || " ";
+    this.paid = obj3 && obj3.paid || false;
+    this.email = obj3 && obj3.email || " ";
+    this.phone = obj3 && obj3.phone || 0;
+  }
+
+
+}

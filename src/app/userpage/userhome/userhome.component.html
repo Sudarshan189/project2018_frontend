@@ -8,17 +8,33 @@
       <tr class="tr-font" align="center">
         <th scope="col">Current Rating (Amps)</th>
         <th scope="col">Voltage Rating (Volts)</th>
+        <!--<th scope="col">KWH (KWH)</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr align="center">
+        <td class="my-font red">{{meterdata.current}}</td>
+        <td class="my-font green">{{meterdata.voltage}}</td>
+        <!--<td class="red">{{meterdata.kwh}}</td>-->
+      </tr>
+      </tbody>
+    </table>
+    <br>
+
+    <table class="table table-borderless">
+      <thead>
+      <tr class="tr-font" align="center">
         <th scope="col">KWH (KWH)</th>
       </tr>
       </thead>
       <tbody>
       <tr align="center">
-        <td class="my-font red">0.003</td>
-        <td class="my-font green">230</td>
-        <td class="my-font red">0.0001</td>
+        <td class="red" style="font-size: 40px">{{meterdata.kwh}}</td>
       </tr>
       </tbody>
     </table>
+
+
   </div>
   <div class="col-sm-6  mt-5 p-3">
     <h5> Meter Details</h5>
@@ -51,26 +67,26 @@
     <table class="table table-borderless">
       <tbody>
       <tr>
-        <td>Check bills that are charged here.</td>
-        <td>Here you can check the notifications sent by BESCOM</td>
-        <td>Here you can check the messages sent by BESCOM</td>
+      <!--<trtr<td>Check bills that are charged here.</td>-->
+        <td>Click here to Update the maeter reading to recent.</td>
+        <!--<td>Here you can check the messages sent by BESCOM</td>-->
       </tr>
       <tr>
+        <!--<td>-->
+          <!--<button type="button" class="btn btn-primary">-->
+            <!--Bills <span class="badge badge-light">4</span>-->
+          <!--</button>-->
+        <!--</td>-->
         <td>
-          <button type="button" class="btn btn-primary">
-            Bills <span class="badge badge-light">4</span>
+          <button type="button" class="btn btn-primary" (click)="UpdateMeterData()" >
+            Update Meter Reading
           </button>
         </td>
-        <td>
-          <button type="button" class="btn btn-primary">
-            Notifications <span class="badge badge-light">4</span>
-          </button>
-        </td>
-        <td>
-          <button type="button" class="btn btn-primary">
-            Messages <span class="badge badge-light">4</span>
-          </button>
-        </td>
+        <!--<td>-->
+          <!--<button type="button" class="btn btn-primary">-->
+            <!--Messages <span class="badge badge-light">4</span>-->
+          <!--</button>-->
+        <!--</td>-->
       </tr>
       </tbody>
     </table>

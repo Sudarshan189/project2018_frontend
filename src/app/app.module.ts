@@ -12,7 +12,9 @@ import { UserpricingComponent } from './userpage/userpricing/userpricing.compone
 import { UserbillComponent } from './userpage/userbill/userbill.component';
 import { newRoute } from './routing/navroute'
 import {AuthService} from "./services/auth.service";
-import {HttpclientService} from "./services/httpclient.service";
+import {BillingService} from "./services/billing.service";
+import { EmployeeauthComponent } from './employee/employeeauth/employeeauth.component';
+import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {HttpclientService} from "./services/httpclient.service";
     UserhomeComponent,
     NavbarComponent,
     UserpricingComponent,
-    UserbillComponent
+    UserbillComponent,
+    EmployeeauthComponent,
+    EmployeehomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import {HttpclientService} from "./services/httpclient.service";
     newRoute,
     HttpModule
   ],
-  providers: [AuthService, HttpclientService],
+  providers: [AuthService, BillingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

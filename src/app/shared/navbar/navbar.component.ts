@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Signup} from "../classes/signup";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +10,25 @@ import {Router} from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
 
-  userdata;
-  constructor(private router: Router) { }
+  userdata: Signup  = new Signup();
+  constructor(private router: Router, private _auth: AuthService) { }
 
   ngOnInit() {
     this.userdata = new Signup();
-    this.userdata = JSON.parse(localStorage.getItem("userdata"));
+    this._auth.GetUserdataService()
+      .then(data => {
+        // local storage
+        localStorage.setItem("userdata",JSON.stringify(data));
+        this.userdata = JSON.parse(localStorage.getItem("userdata"));
+        if(this.userdata.id == 0) {
+          this.router.navigate(["/login"])
+        }
+      })
+      .catch(err=> console.log(err));
+
+
+
+   // this.userdata = JSON.parse(localStorage.getItem("userdata"));
   }
 
 
@@ -22,6 +36,7 @@ export class NavbarComponent implements OnInit {
   Logout() {
     // localStorage.removeItem("userdata");
     this.router.navigate(["./login"]);
+
   }
 
 }
