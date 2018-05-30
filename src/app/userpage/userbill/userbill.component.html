@@ -4,7 +4,6 @@
     <div align="center" class="mt-2"> <h5>Bills</h5></div>
     <div class="card m-2" *ngFor="let item of bills">
       <div class="card-body p-2 pl-3">
-        <!-- First row -->
         <div class="row">
           <div class="col-sm-4">
             Bill Number:<h5 class="card-title">{{item.bill_num}}</h5>
@@ -16,7 +15,6 @@
             Billing Date:<h5 class="card-title">{{item.reading_date}}</h5>
           </div>
         </div>
-        <!-- Third  Row-->
         <div class="row">
           <div class="col-sm-4">
             <button class="btn btn-primary btn-sm btn-block" (click)="OpenBill(item)">Open Bill</button>
@@ -28,17 +26,13 @@
             <a href="#" class="btn btn-danger btn-sm btn-block">Unpaid</a>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
-  <!-- Detailed Bill-->
   <div class="col-sm-7">
     <div align="center" class="mt-2"> <h5>Detailed Bill </h5></div>
     <div class="card" *ngIf="bill.bill_num > 0">
       <div class="card-body">
-
         <div class="row" align="center">
           <div class="col-sm-4">
             RR Number:<h6 class="card-title">{{bill.rr_num}}</h6>
@@ -51,7 +45,6 @@
           </div>
         </div>
         <hr>
-
         <div class="row" align="center">
           <div class="col-sm-6">
             Billing Period:<h6 class="card-title">{{bill.from_date}} - {{bill.to_date}}</h6>
@@ -64,9 +57,6 @@
           <div class="col-sm-12">
             Due Date:<h6 class="card-title">{{bill.due_date}}</h6>
           </div>
-          <!--<div class="col-sm-6">-->
-            <!--Disconnection Date:<h6 class="card-title">11-05-2018</h6>-->
-          <!--</div>-->
         </div>
         <div class="row" align="center">
           <div class="col-sm-2"></div>
@@ -104,45 +94,23 @@
           </tr>
           </thead>
           <tbody>
-          <!--<tr align="center">-->
-            <!--<td scope="row">Present Reading</td>-->
-            <!--<td>12-04-2018</td>-->
-            <!--<td>1916</td>-->
-            <!--<td></td>-->
-          <!--</tr>-->
-          <!--<tr align="center">-->
-            <!--<td scope="row">Previous Reading</td>-->
-            <!--<td>12-03-2018</td>-->
-            <!--<td>1795</td>-->
-            <!--<td></td>-->
-          <!--</tr>-->
-          <!--<tr align="center">-->
-            <!--<td scope="row">Difference</td>-->
-            <!--<td></td>-->
-            <!--<td>121</td>-->
-            <!--<td>0</td>-->
-          <!--</tr>-->
           <tr align="center">
             <td scope="row">Meter Constant</td>
-            <!--<td></td>-->
             <td>1</td>
             <td></td>
           </tr>
           <tr align="center">
             <td scope="row">Consumption</td>
-            <!--<td></td>-->
             <td>{{bill.consumption}}</td>
             <td>0</td>
           </tr>
           <tr align="center">
             <td scope="row">Less/Add:Consumption</td>
-            <!--<td></td>-->
             <td>0</td>
             <td></td>
           </tr>
           <tr align="center">
             <td scope="row">Net Consumption</td>
-            <!--<td></td>-->
             <td>{{bill.consumption}}</td>
             <td></td>
           </tr>
@@ -158,7 +126,6 @@
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-              <!-- Table -->
               <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -173,16 +140,12 @@
                 </tr>
                 </tbody>
               </table>
-              <!--end table-->
             </div>
           </div>
         </div>
         <br>
         <div align="right"><h6> Sd/-<br>Assistant Executive Engineer (Ele.)</h6></div>
         <div class="row">
-          <!--<div class="col-sm-4">-->
-            <!--<a href="#" class="btn btn-danger btn-sm btn-block">Close</a>-->
-          <!--</div>-->
           <div class="col-sm-4">
             <a href="#" class="btn btn-primary btn-sm btn-block">Pay Bill</a>
           </div>
@@ -191,7 +154,5 @@
       </div>
     </div>
   </div>
-  <!-- End bill detail-->
 </div>
-
 <br><br>

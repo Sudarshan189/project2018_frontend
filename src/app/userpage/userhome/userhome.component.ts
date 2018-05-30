@@ -14,10 +14,8 @@ import "rxjs/add/observable/timer";
   styleUrls: ['./userhome.component.css']
 })
 export class UserhomeComponent implements OnInit {
-
   userdata: Signup;
   meterdata: KWHUpdate;
-  private timerSubscription: any;   //just to hold the reference
 
   constructor(private _auth: AuthService, private router: Router, private billingservice: BillingService) { }
 
@@ -43,7 +41,6 @@ export class UserhomeComponent implements OnInit {
       })
       .catch(err=> console.log(err));
 
-
     this.meterdata = new KWHUpdate();
     this.billingservice.GetMeterData(this.userdata.rr_num)
       .then(data=> {
@@ -52,8 +49,6 @@ export class UserhomeComponent implements OnInit {
       .catch(err => console.log(err));
 
   }
-
-
   UpdateMeterData() {
     this.meterdata = new KWHUpdate();
     this.billingservice.GetMeterData(this.userdata.rr_num)
@@ -62,6 +57,4 @@ export class UserhomeComponent implements OnInit {
       })
       .catch(err => console.log(err));
   }
-
-
 }

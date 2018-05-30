@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<br>
+<div align="center">
+  <h4> Control Switches from here </h4>
+</div>
+<div class="row p-3">
+  <div class="col-sm-6">
+    <div class="card mb-1" *ngFor="let i of switches">
+      <div class="card-body">
+        <h5 class="card-title">Socket Number: {{i.socket_id}}</h5>
+        <div class="alert alert-success" role="alert" *ngIf="i.soc_status == '1'">
+          This switch is Switched on.
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="i.soc_status == '0'">
+          This switch is Switched off.
+        </div>
+        <button class="btn btn-success" (click)="SwitchOn(i)">Switch On</button>
+        <button class="btn btn-danger" (click)="SwitchOff(i)">Switch Off</button>
+      </div>
+    </div>
+  </div>
+</div>

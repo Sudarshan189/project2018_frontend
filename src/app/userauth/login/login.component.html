@@ -1,42 +1,42 @@
 <body>
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-6">
-      <div class="container p-4 mt-4" style="background-color:white; border:1px solid black">
-        <div align="center">
-          <img src="http://sarkarinews.com/wp-content/uploads/2015/02/bescom.jpg" style="width:100px;height:125px;">
-          <h6 class="pb-0">BESCOM Login Portal</h6>
-        </div>
-        <form #f="ngForm" (ngSubmit)="LoginForm(f.value)">
-          <div class="form-group">
-            <label for="exampleInputAccountid">Account ID</label>
-            <input type="text" name="id" ngModel class="form-control" id="exampleInputAccountid" aria-describedby="emailHelp" placeholder="Account ID/ Aadhar Number">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-6">
+        <div class="container p-4 mt-4" style="background-color:white; border:1px solid black">
+          <div align="center">
+            <img src="http://sarkarinews.com/wp-content/uploads/2015/02/bescom.jpg" style="width:100px;height:125px;">
+            <h6 class="pb-0">BESCOM Login Portal</h6>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" name="password" ngModel class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group form-check">
-          </div>
-          <div class="alert alert-danger" role="alert" *ngIf="error == 1">
-            Login Failed
-          </div>
-          <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <form #f="ngForm" (ngSubmit)="LoginForm(f.value)">
+            <div class="form-group">
+              <label for="exampleInputAccountid">Account ID</label>
+              <input type="text" name="id" ngModel class="form-control" id="exampleInputAccountid" aria-describedby="emailHelp" placeholder="Account ID/ Aadhar Number">
             </div>
-            <div class="col-sm-4"></div>
-          </div>
-        </form>
-        <br>
-        <p> Not yet Signed In <a [routerLink]="['/signin']">Click Here!!</a></p>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" name="password" ngModel class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group form-check">
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="error == 1">
+              Login Failed
+            </div>
+            <div class="row">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </div>
+              <div class="col-sm-4"></div>
+            </div>
+          </form>
+          <br>
+          <p> Not yet Signed In <a [routerLink]="['/signin']">Click Here!!</a></p>
+        </div>
+      </div>
+      <div class="col-sm-3">
       </div>
     </div>
-    <div class="col-sm-3">
-    </div>
   </div>
-</div>
 </body>

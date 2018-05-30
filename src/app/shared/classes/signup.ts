@@ -1,5 +1,4 @@
 export class Signup {
-
   id: any;
   name: string;
   address: string;
@@ -26,25 +25,23 @@ export class Signup {
 }
 
 export class StatusRespons {
-
   state: any;
   message: string;
+
   constructor(obj1?:any) {
     this.state = obj1 && obj1.state || 15;
     this.message = obj1 && obj1.message || "Blank";
   }
-
-
 }
 
 
 export class KWHUpdate {
-
   rr_num: any;
   current: any;
   voltage: any;
   kwh: any;
   updated_at: any;
+
   constructor(obj2?:any) {
     this.rr_num = obj2 && obj2.rr_num || " ";
     this.current = obj2 && obj2.current || "0";
@@ -52,12 +49,9 @@ export class KWHUpdate {
     this.kwh = obj2 && obj2.kwh || "0";
     this.updated_at = obj2 && obj2.updated_at || " ";
   }
-
-
 }
 
 export class Bill {
-
   rr_num: any;
   account_id: any;
   mtr_read_code: any;
@@ -93,10 +87,7 @@ export class Bill {
    email: any;
    phone: any;
 
-
-
-
-  constructor(obj3?:any) {
+   constructor(obj3?:any) {
     this.rr_num = obj3 && obj3.rr_num || " ";
     this.account_id = obj3 && obj3.account_id || " ";
     this.mtr_read_code = obj3 && obj3.mtr_read_code || " ";
@@ -132,6 +123,19 @@ export class Bill {
     this.email = obj3 && obj3.email || " ";
     this.phone = obj3 && obj3.phone || 0;
   }
+}
 
+export class Switch {
+rr_num: any;
+socket_id: any;
+soc_status: any;
+updated_at: any;
+
+constructor(obje?:any) {
+  this.rr_num = obje && obje.rr_num || " ";
+  this.socket_id = obje && obje.socket_id || " ";
+  this.soc_status = obje && obje.soc_status || " ";
+  this.updated_at = obje && obje.updated_at || " ";
+}
 
 }

@@ -15,6 +15,8 @@ import {AuthService} from "./services/auth.service";
 import {BillingService} from "./services/billing.service";
 import { EmployeeauthComponent } from './employee/employeeauth/employeeauth.component';
 import { EmployeehomeComponent } from './employee/employeehome/employeehome.component';
+import {SwitchService} from "./services/switch.service";
+import { SwitchcontrolComponent } from './userpage/switchcontrol/switchcontrol.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { EmployeehomeComponent } from './employee/employeehome/employeehome.comp
     UserpricingComponent,
     UserbillComponent,
     EmployeeauthComponent,
-    EmployeehomeComponent
+    EmployeehomeComponent,
+    SwitchcontrolComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { EmployeehomeComponent } from './employee/employeehome/employeehome.comp
     newRoute,
     HttpModule
   ],
-  providers: [AuthService, BillingService],
+  providers: [AuthService, BillingService,SwitchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

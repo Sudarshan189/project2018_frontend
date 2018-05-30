@@ -8,12 +8,10 @@ import {BillingService} from "../../services/billing.service";
   styleUrls: ['./userbill.component.css']
 })
 export class UserbillComponent implements OnInit {
-
   constructor(private billingservice: BillingService) { }
   userdata: Signup;
   bills: Bill[];
   bill: Bill =new Bill();
-
   ngOnInit() {
     this.userdata = JSON.parse(localStorage.getItem("userdata"));
     this.billingservice.GetBills(this.userdata.rr_num)
@@ -23,11 +21,8 @@ export class UserbillComponent implements OnInit {
       })
       .catch(err => console.log(err));
   }
-
-
   OpenBill(item : Bill) {
     this.bill = new Bill();
     this.bill = item;
   }
-
 }
